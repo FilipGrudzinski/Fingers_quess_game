@@ -17,21 +17,14 @@ class ViewController: UIViewController {
     
     @IBAction func quessButton(_ sender: Any) {
         
-         let roll = arc4random_uniform(6)
+         let roll = String(arc4random_uniform(6))
      
-            if let holdingFingers = fingersField.text {
+            if fingersField.text!.isEmpty {
             
-                if holdingFingers.isEmpty {
+                   resultLabel.text = ("Input fingers holding up")
                 
-                    print("Input fingers holding up")
-                
-                } else {
+                } else if fingersField.text == roll {
                
-                    
-                let fingers = uint(holdingFingers)
-                
-                    if fingers == roll {
-                    
                         resultLabel.text = ("You're right !")
                     
                     } else {
@@ -39,10 +32,7 @@ class ViewController: UIViewController {
                     resultLabel.text = ("Wrong, it was a \(roll) !")
                     
                 }
-        
-            }
-                
-        }
+
         
     }
     
